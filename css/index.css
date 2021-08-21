@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 100%;
+    height: 100%;
+    background-color: cornflowerblue;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    transition: all .5s;
+    left: 100%;
+}
+
+.sidebar-active {
+    left: 0;
+}
+
+.sidebar>.toggle {
+    border: none;
+    outline: none;
+    background: transparent;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+}
+
+.sidebar>.toggle svg path {
+    transition: all .3s;
+}
+
+.sidebar>.active svg path {
+    fill: white;
+}
+
+.sidebar>.menu {
+    list-style: none;
+}
+
+.sidebar>.menu>li {
+    width: 200px;
+    height: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    transition: all .3s;
+}
+
+.sidebar>.menu>.curt,
+.sidebar>.menu>li:hover {
+    color: cornflowerblue;
+    background-color: white;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main>div {
+    display: none;
+}
+
+main>.curt {
+    display: unset;
+}

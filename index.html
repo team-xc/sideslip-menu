@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端侧滑菜单</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <button class="toggle">
+            <svg t="1629551370923" class="icon" viewBox="0 0 1024 1024" p-id="1191" width="25" height="25">
+                <path
+                    d="M238.933 420.978c-50.067 0-91.022 40.956-91.022 91.022s40.956 91.022 91.022 91.022 91.022-40.956 91.022-91.022-40.956-91.022-91.022-91.022z m546.134 0c-50.067 0-91.022 40.956-91.022 91.022s40.956 91.022 91.022 91.022 91.022-40.956 91.022-91.022-40.956-91.022-91.022-91.022z m-273.067 0c-50.067 0-91.022 40.956-91.022 91.022s40.956 91.022 91.022 91.022 91.022-40.956 91.022-91.022-40.956-91.022-91.022-91.022z"
+                    p-id="1192">
+                </path>
+            </svg>
+        </button>
+
+        <ul class="menu">
+            <li class="curt">首页</li>
+            <li>文章</li>
+            <li>资源</li>
+            <li>关于</li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="curt">首页</div>
+        <div>文章</div>
+        <div>资源</div>
+        <div>关于</div>
+    </main>
+
+    <script>
+        let toggle = document.querySelector('.toggle')
+        let sidebar = document.querySelector('.sidebar')
+        let menus = document.querySelector('.menu').children
+        let views = document.querySelector('main').children
+        let isOpenSidebar = false
+
+        toggle.onclick = () => {
+            if (isOpenSidebar) {
+                sidebar.classList.remove('sidebar-active')
+                toggle.classList.remove('active')
+            } else {
+                sidebar.classList.add('sidebar-active')
+                toggle.classList.add('active')
+            }
+
+            isOpenSidebar = !isOpenSidebar
+        }
+
+        for (let i = 0; i < menus.length; i++) {
+            menus[i].onclick = () => {
+                for (let j = 0; j < menus.length; j++) {
+                    menus[j].className = ''
+                    views[j].className = ''
+                }
+                menus[i].className = 'curt'
+                views[i].className = 'curt'
+                toggle.click()
+            }
+        }
+    </script>
+
+</body>
+
+</html>
